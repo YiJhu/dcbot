@@ -7,8 +7,13 @@ class Owner(Cog_Extension):
 
     @commands.command()
     @commands.is_owner()
-    async def send(self, ctx, msg):
+    async def send(self, ctx, *, msg):
         await ctx.send('%s' %(msg))
+    
+    @commands.command()
+    @commands.is_owner()
+    async def del_msg(self, ctx, num:int):
+        await ctx.channel.purge(limit=num+1)
 
     @commands.command()
     @commands.is_owner()
