@@ -35,7 +35,7 @@ class Event(Cog_Extension):
             answer = random.randint(1, 100)
 
             try:
-                guess = await self.bot.wait_for('msg', check=is_correct, timeout=5.0)
+                guess = await self.bot.wait_for('message', check=is_correct, timeout=5.0)
             except asyncio.TimeoutError:
                 return await msg.channel.send('抱歉，您花了太長時間 {}。'.format(answer))
 
