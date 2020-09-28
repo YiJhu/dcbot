@@ -11,6 +11,7 @@ class Owner(Cog_Extension):
         await ctx.send('%s' %(msg))
     
     @commands.command()
+    @commands.guild_only()
     @commands.is_owner()
     async def del_msg(self, ctx, num:int):
         await ctx.channel.purge(limit=num+1)
@@ -18,7 +19,8 @@ class Owner(Cog_Extension):
     @commands.command()
     @commands.is_owner()
     async def Aria_off(self, ctx):
-        await ctx.send('即將終止程式!')
+        embed = discord.Embed(description="即將終止程式", color=0xfe5901)
+        await ctx.send(embed = embed)
         await self.bot.close()
 
 
