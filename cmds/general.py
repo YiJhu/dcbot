@@ -38,7 +38,7 @@ class General(Cog_Extension):
     @commands.command()
     async def my_id(self, ctx):
         """Get your system id"""
-        embed = discord.Embed(description="%s" %(ctx.author.id), color=0xfe5901, timestamp=datetime.now(timezone.utc))
+        embed = discord.Embed(description="%s" %(ctx.author.id), color=0xfe5901, timestamp=datetime.datetime.now(timezone.utc))
         await ctx.send(embed = embed)
 
     @commands.command()
