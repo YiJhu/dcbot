@@ -19,7 +19,7 @@ class Owner(Cog_Extension):
     @commands.command()
     @commands.is_owner()
     async def Aria_off(self, ctx):
-        embed = discord.Embed(description="即將終止程式", color=0xfe5901, timestamp=datetime.datetime.now(timezone.utc))
+        embed = discord.Embed(description="即將終止程式", color=0xfe5901, timestamp=datetime.datetime.now(tz=None))
         await ctx.send(embed = embed)
         await self.bot.close()
 
