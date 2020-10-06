@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-import asyncio
+import asyncio, datetime
 from core.classes import Cog_Extension
 
 class Owner(Cog_Extension):
@@ -19,7 +19,7 @@ class Owner(Cog_Extension):
     @commands.command()
     @commands.is_owner()
     async def Aria_off(self, ctx):
-        embed = discord.Embed(description="即將終止程式", color=0xfe5901, timestamp=datetime.now(timezone.utc))
+        embed = discord.Embed(description="即將終止程式", color=0xfe5901, timestamp=datetime.datetime.now(timezone.utc))
         await ctx.send(embed = embed)
         await self.bot.close()
 
