@@ -7,7 +7,7 @@ class Owner(Cog_Extension):
 
     @commands.command()
     @commands.is_owner()
-    async def send(self, ctx, *, msg):
+    async def send(self, ctx, *, msg:str):
         await ctx.send('%s' %(msg))
     
     @commands.command()
