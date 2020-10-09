@@ -55,5 +55,21 @@ class General(Cog_Extension):
         embed.set_footer(text="Aria Helper")
         await ctx.send(embed = embed)
 
+    @commands.command()
+    async def server_info(self, ctx):
+        server_name = ctx.guild.name
+        server_create_date = ctx.guild.created_at.strftime("%Y-%m-%d %H:%M:%S")
+        server_user = len(ctx.guild.members)
+        text_channel = len(ctx.guild.text_channels)
+        voice_channel = len(ctx.guild.voice_channels)
+        embed = discord.Embed(title="Server info", color=0xfe5901, timestamp=datetime.datetime.utcnow())
+        embed.add_field(name="Server Name", value="%s s" %(server_name), inline=False)
+        embed.add_field(name="Create Time", value="%s s" %(server_create_date), inline=False)
+        embed.add_field(name="Total of people", value="%s s" %(server_user), inline=False)
+        embed.add_field(name="Total of text channel", value="%s s" %(text_channel), inline=False)
+        embed.add_field(name="Total of voice channel", value="%s s" %(voice_channel), inline=False)
+        embed.set_footer(text="Aria Helper")
+        await ctx.send(embed = embed)
+
 def setup(bot):
     bot.add_cog(General(bot))

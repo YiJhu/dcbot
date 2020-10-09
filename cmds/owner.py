@@ -7,6 +7,31 @@ class Owner(Cog_Extension):
 
     @commands.command()
     @commands.is_owner()
+    async def load(self, ctx, extension):
+        '''Load extension'''
+        self.bot.load_extension(f'cmds.{extension}')
+        await ctx.send(f'Loaded {extension} success.')
+
+    @commands.command()
+    @commands.is_owner()
+    async def reload(self, ctx, extension):
+        '''Reload extension'''
+        self.bot.reload_extension(f'cmds.{extension}')
+        embed = discord.Embed(title=f'Reload {extension} success.', color=0xfe5901, timestamp=datetime.datetime.utcnow())
+        embed.set_footer(text="Aria Helper")
+        await ctx.send(embed = embed)
+
+    @commands.command()
+    @commands.is_owner()
+    async def unload(self, ctx, extension):
+        '''Unload extension'''
+        self.bot.unload_extension(f'cmds.{extension}')
+        embed = discord.Embed(title=f'Unload {extension} success.', color=0xfe5901, timestamp=datetime.datetime.utcnow())
+        embed.set_footer(text="Aria Helper")
+        await ctx.send(embed = embed)
+
+    @commands.command()
+    @commands.is_owner()
     async def send(self, ctx, *, msg:str):
         await ctx.send('%s' %(msg))
     
