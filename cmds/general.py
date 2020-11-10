@@ -57,7 +57,7 @@ class General(Cog_Extension):
 
     @commands.command()
     async def server_info(self, ctx):
-        """Display status of the server"
+        """Display status of the server"""
         server_name = ctx.guild.name
         server_create_date = ctx.guild.created_at.strftime("%Y-%m-%d %H:%M:%S")
         server_user = len(ctx.guild.members)
