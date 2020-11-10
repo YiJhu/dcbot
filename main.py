@@ -10,7 +10,7 @@ bot = commands.Bot(command_prefix='/',  intents=intents)
 @bot.event
 async def on_ready():
     await bot.change_presence(activity=discord.Game(name="DN-Team|Aria helper"))
-    print('Discode Aria_helper is Online!')
+    print('Discord Aria_helper is Online!')
     print('BOT NAME : %s'%(bot.user.name))
     print('USER ID : %s' %(bot.user.id))
     print('------'*5)
