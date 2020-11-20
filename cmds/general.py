@@ -60,12 +60,14 @@ class General(Cog_Extension):
         """Display status of the server"""
         server_name = ctx.guild.name
         server_create_date = ctx.guild.created_at.strftime("%Y-%m-%d %H:%M:%S")
+        server_owner = ctx.guild.owner
         server_user = len(ctx.guild.members)
         text_channel = len(ctx.guild.text_channels)
         voice_channel = len(ctx.guild.voice_channels)
         embed = discord.Embed(title="Server info", color=0xfe5901, timestamp=datetime.datetime.utcnow())
         embed.add_field(name="Server Name", value="%s" %(server_name), inline=False)
         embed.add_field(name="Create Time", value="%s" %(server_create_date), inline=False)
+        embed.add_field(name="Server Owner", value="%s" %(server_owner), inline=False)
         embed.add_field(name="Total of people", value="%s" %(server_user), inline=False)
         embed.add_field(name="Total of text channel", value="%s" %(text_channel), inline=False)
         embed.add_field(name="Total of voice channel", value="%s" %(voice_channel), inline=False)
