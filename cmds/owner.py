@@ -10,7 +10,9 @@ class Owner(Cog_Extension):
     async def load(self, ctx, extension):
         '''Load extension'''
         self.bot.load_extension(f'cmds.{extension}')
-        await ctx.send(f'Loaded {extension} success.')
+        embed = discord.Embed(title=f'Loaded {extension} success.', color=0xfe5901, timestamp=datetime.datetime.utcnow())
+        embed.set_footer(text="Aria Helper")
+        await ctx.send(embed = embed)
 
     @commands.command()
     @commands.is_owner()

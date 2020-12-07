@@ -11,7 +11,9 @@ class General(Cog_Extension):
     async def ping(self, ctx):
         """Ping latency"""
         embed = discord.Embed(title="ping latency", color=0xfe5901, timestamp=datetime.datetime.utcnow())
-        embed.add_field(name="Bot latency", value="%s s" %(self.bot.latency), inline=False)
+        command_latency = (datetime.datetime.utcnow() - ctx.message.created_at).total_seconds() * 1000
+        embed.add_field(name="Command latency", value="%s ms" %(f'{round(command_latency)}'), inline=False)
+        embed.add_field(name="Api latency", value="%s ms" %(f'{round(self.bot.latency*1000)}'), inline=False)
         embed.set_footer(text="Aria Helper")
         await ctx.send(embed = embed)
 
@@ -37,8 +39,6 @@ class General(Cog_Extension):
         embed = discord.Embed(title="server id", description="%s" %(ctx.guild.id), color=0xfe5901, timestamp=datetime.datetime.utcnow())
         embed.set_footer(text="Aria Helper")
         await ctx.send(embed = embed)
-        
-        
 
     @commands.command()
     async def my_id(self, ctx):
@@ -56,6 +56,7 @@ class General(Cog_Extension):
         await ctx.send(embed = embed)
 
     @commands.command()
+    @commands.guild_only()
     async def server_info(self, ctx):
         """Display status of the server"""
         server_name = ctx.guild.name
