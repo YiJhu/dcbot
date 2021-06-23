@@ -41,6 +41,15 @@ class General(Cog_Extension):
         await ctx.send(embed = embed)
 
     @commands.command()
+    @commands.guild_only()
+    async def channel_id(self, ctx):
+        """Get server channel id"""
+        embed = discord.Embed(title="Channel Name", description="%s" %(ctx.channel.name), color=0xfe5901, timestamp=datetime.datetime.utcnow())
+        embed.add_field(name="channel id", value="%s" %(ctx.channel.id))
+        embed.set_footer(text="Aria Helper")
+        await ctx.send(embed = embed)
+
+    @commands.command()
     async def my_id(self, ctx):
         """Get your system id"""
         embed = discord.Embed(description="%s" %(ctx.author.id), color=0xfe5901, timestamp=datetime.datetime.utcnow())
@@ -66,14 +75,35 @@ class General(Cog_Extension):
         text_channel = len(ctx.guild.text_channels)
         voice_channel = len(ctx.guild.voice_channels)
         embed = discord.Embed(title="Server info", color=0xfe5901, timestamp=datetime.datetime.utcnow())
+        embed.set_thumbnail(url=ctx.guild.icon_url)
         embed.add_field(name="Server Name", value="%s" %(server_name), inline=False)
         embed.add_field(name="Create Time", value="%s" %(server_create_date), inline=False)
         embed.add_field(name="Server Owner", value="%s" %(server_owner), inline=False)
+        embed.add_field(name="Server Regin", value=ctx.guild.region, inline=False)
         embed.add_field(name="Total of people", value="%s" %(server_user), inline=False)
         embed.add_field(name="Total of text channel", value="%s" %(text_channel), inline=False)
         embed.add_field(name="Total of voice channel", value="%s" %(voice_channel), inline=False)
         embed.set_footer(text="Aria Helper")
         await ctx.send(embed = embed)
+
+    @commands.command()
+    @commands.guild_only()
+    async def user_info(self, ctx, *, user: discord.Member = None):
+        """Get User Info"""
+        user = user or ctx.author
+        show_roles = ', '.join(
+            [f"<@&{x.id}>" for x in sorted(user.roles, key=lambda x: x.position, reverse=True) if x.id != ctx.guild.default_role.id]
+        ) if len(user.roles) > 1 else 'None'
+        embed = discord.Embed(colour=user.top_role.colour.value, timestamp=datetime.datetime.utcnow())
+        embed.set_thumbnail(url=user.avatar_url)
+        embed.add_field(name="User Name", value=user, inline=False)
+        embed.add_field(name="Nick Name", value=user.nick if hasattr(user, "nick") else "None", inline=False)
+        embed.add_field(name="Creat At", value=(user.created_at).strftime("%Y-%m-%d %H:%M:%S"), inline=False)
+        embed.add_field(name="Join At", value=(user.joined_at).strftime("%Y-%m-%d %H:%M:%S"), inline=False)
+        embed.add_field(name="User Id", value=user.id, inline=False)
+        embed.add_field(name="User Roles", value=show_roles,inline=False)
+        embed.set_footer(text="Aria Helper")
+        await ctx.send(embed=embed)
 
 def setup(bot):
     bot.add_cog(General(bot))
