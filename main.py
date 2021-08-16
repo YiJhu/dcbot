@@ -1,11 +1,14 @@
 import discord
 from discord.ext import commands
-import os
+import os,  configparser
+
+config = configparser.ConfigParser()
+config.read(".\\config.ini")
 
 intents = discord.Intents.default()
 intents.members = True
 
-bot = commands.Bot(command_prefix='/',  intents=intents)
+bot = commands.Bot(command_prefix=config['bot_set']['prefix'],  intents=intents)
 
 @bot.event
 async def on_ready():
@@ -20,4 +23,4 @@ for filename in os.listdir('./cmds'):
         bot.load_extension(f'cmds.{filename[:-3]}')
 
 if __name__ == "__main__":
-    bot.run('NzQ2MjY5NTE3MzM1NzU2ODEw.Xz93pQ.18MJ89K8cNjZCcIDsuxAv4VmHzE')
+    bot.run(config['bot_login']['Token'])
