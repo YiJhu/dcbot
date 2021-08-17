@@ -25,7 +25,7 @@ class Event(Cog_Extension):
             await guild.system_channel.send(embed = embed)
 
     @commands.Cog.listener()
-    async def on_command_error(self, ctx, error):
+    async def on_slash_command_error(self, ctx, error):
             embed = discord.Embed(description="%s" %(error), color=0xff0000, timestamp=datetime.datetime.utcnow())
             embed.set_footer(text="Aria Error!")
             await ctx.send(embed = embed)
