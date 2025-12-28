@@ -68,18 +68,16 @@ python bot.py
 
 在頻道中輸入指令即可互動
 
-# ⌨ Commands（範例）
+```⌨ Commands（範例）
+/ping  測試 Bot 是否在線
 
-|!help | 顯示指令列表 |
-
-|!ping | 測試 Bot 是否在線 |
-
-|!info | 顯示 Bot 資訊 |
+/info  顯示 Bot 資訊
 
 （實際指令請依程式碼為準）
 
 
-### 🤝 Contributing
+### 🤝 Contrib
+```uing
 
 歡迎提交 Issue 或 Pull Request！
 
@@ -100,3 +98,4 @@ Fork 本專案
 
 - [Discord.py]("https://github.com/Rapptz/discord.py")
 - [discord-py-slash-command]("https://github.com/interactions-py/interactions.py")
+
