@@ -58,26 +58,12 @@ DISCORD_TOKEN=你的DiscordBotToken
 ⚠️ **請勿將 .env 上傳至 GitHub**
 
 ### 5️⃣ 啟動 Bot
+
 ```bash
 python bot.py
 ```
 
-### ▶ Usage
-
-## 將 Bot 邀請進你的 Discord 伺服器
-
-在頻道中輸入指令即可互動
-
-```⌨ Commands（範例）
-/ping  測試 Bot 是否在線
-
-/info  顯示 Bot 資訊
-
-（實際指令請依程式碼為準）
-
-
-### 🤝 Contrib
-```uing
+### 🤝 Contributing
 
 歡迎提交 Issue 或 Pull Request！
 
@@ -98,4 +84,3 @@ Fork 本專案
 
 - [Discord.py]("https://github.com/Rapptz/discord.py")
 - [discord-py-slash-command]("https://github.com/interactions-py/interactions.py")
-
