@@ -78,9 +78,10 @@ Fork 本專案
 ### 📜 License
 
 本專案採用 **MIT License**
-詳情請見 [LICENSE]("https://github.com/YiJhu/dcbot/blob/master/LICENSE.md")
+詳情請見 [LICENSE](https://github.com/YiJhu/dcbot/blob/master/LICENSE.md)
 
 ### 🙏 Acknowledgements
 
-- [Discord.py]("https://github.com/Rapptz/discord.py")
-- [discord-py-slash-command]("https://github.com/interactions-py/interactions.py")
+- [Discord.py](https://github.com/Rapptz/discord.py)
+- [discord-py-slash-command](https://github.com/interactions-py/interactions.py)
+
